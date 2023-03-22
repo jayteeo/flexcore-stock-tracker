@@ -1,14 +1,23 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import Express from "express";
+import coresRoutes from './routes/cores.js'
 
 //express app
 const app = Express();
 
-//route handler
-app.get('/', (req,res) => {
-    res.json({mssg: 'Welcome to Flex-Core Stock Tracker!'})
+//middleware
+app.use((req, res, next) => {
+    console.log(req.path, req.method);
+    next();
+
 })
 
+//routes
+app.use('/api/cores', coresRoutes);
+
 //listen for requests
-app.listen(4000, () => {
-    console.log('Listening on Port 4000');
+app.listen(process.env.PORT, () => {
+    console.log('Listening on Port', process.env.PORT);
 })
