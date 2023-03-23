@@ -1,13 +1,15 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-import Express from "express";
-import coresRoutes from './routes/cores.js'
+import express from 'express';
+import mongoose from 'mongoose';
+import coresRoutes from './routes/cores.js';
 
 //express app
-const app = Express();
+const app = express();
 
 //middleware
+app.use(express.json());
 app.use((req, res, next) => {
     console.log(req.path, req.method);
     next();
@@ -17,7 +19,16 @@ app.use((req, res, next) => {
 //routes
 app.use('/api/cores', coresRoutes);
 
-//listen for requests
-app.listen(process.env.PORT, () => {
-    console.log('Listening on Port', process.env.PORT);
-})
+//connect to db
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        //listen for requests
+        app.listen(process.env.PORT, () => {
+            console.log('Cpnnected to Database & listening on Port', process.env.PORT);
+        })
+    })
+    .catch((error) => {
+        console.log(error)
+    });
+    
+
