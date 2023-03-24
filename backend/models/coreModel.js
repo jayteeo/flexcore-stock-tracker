@@ -13,4 +13,4 @@ const coresSchema = new Schema ({
     },
 }, { timestamps: true })
 
-export default mongoose.model('Cores', coresSchema);
+export default mongoose.model('coreModel', coresSchema);
