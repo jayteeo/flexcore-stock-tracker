@@ -2,7 +2,7 @@ import coreModel from "../models/coreModel.js";
 
 //get all cores
 const getCores = async (req, res) => {
-    
+    const cores = await coreModel.find({}).sort({size: -1});
 }
 
 
