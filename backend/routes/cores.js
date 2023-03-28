@@ -1,19 +1,17 @@
 import express from 'express';
 import {
+    getCore,
+    getCores,
      createCore, 
     } from '../controllers/coresController.js';
 
 const router = express.Router();
 
 //GET all cores
-router.get('/', (req, res) => {
-    res.json({mssg: 'GET all cores'})
-});
+router.get('/', getCores);
 
 //GET single core
-router.get('/:id', (req, res) => {
-    res.json({mssg: 'GET all cores'})
-});
+router.get('/:id', getCore);
 
 //POST a core
 router.post('/', createCore);
