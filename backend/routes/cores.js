@@ -1,8 +1,10 @@
 import express from 'express';
 import {
-    getCore,
-    getCores,
-     createCore, 
+        getCore,
+        getCores,
+        createCore, 
+        deleteCore,
+        updateCore,
     } from '../controllers/coresController.js';
 
 const router = express.Router();
@@ -17,13 +19,9 @@ router.get('/:id', getCore);
 router.post('/', createCore);
 
 //DELETE A core
-router.get('/', (req, res) => {
-    res.json({mssg: 'GET all cores'})
-});
+router.delete('/:id', deleteCore);
 
 //UPDATE cores
-router.patch('/:id', (req, res) => {
-    res.json({mssg: 'UPDATE cores'})
-});
+router.patch('/:id', updateCore);
 
 export {router as default};

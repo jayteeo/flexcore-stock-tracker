@@ -41,13 +41,46 @@ const createCore = async (req, res) => {
 }
 
 //delete a core
+const deleteCore = async (req, res) => {
+    const { id } = req.params;
 
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'No such core exists!'});
+    }
+
+    const core = await coreModel.findOneAndDelete({_id: id});
+
+    if (!core) {
+        return res.status(400).json({error: 'No such core exists!'});
+    }
+
+    res.status(200).json(core);
+}
 
 
 //update a core
+const updateCore = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'No such core exists!'});
+    }
+
+    const core = await coreModel.findOneAndUpdate({_id: id}, {
+       ...req.body
+    })
+
+    if (!core) {
+        return res.status(400).json({error: 'No such core exists!'});
+    }
+
+    res.status(200).json(core);
+}
 
 export {
     getCore,
     getCores,
-    createCore
+    createCore,
+    deleteCore,
+    updateCore,
 };
