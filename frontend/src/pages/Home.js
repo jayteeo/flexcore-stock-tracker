@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 
+//components
+import CoresDetails from '../components/CoresDetails.js'
+
 
 const Home = () => {
     const [cores, setCores] = useState(null)
@@ -21,7 +24,7 @@ const Home = () => {
         <div className="home">
             <div className="cores">
                 {cores && cores.map((core) => (
-                    <p key={core._id}>{cores.size}</p>
+                    <CoresDetails key={core._id} core={core} />
                 ))}
             </div>
         </div>
