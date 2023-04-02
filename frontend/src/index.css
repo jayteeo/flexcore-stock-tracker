@@ -33,3 +33,12 @@ header a {
   padding: 1%;
   margin:0 auto;
 }
+
+.cores-details {
+  background-color: white;
+  border: 1px black solid;
+  margin: 1.5% 0 1.5% 0;
+  padding: 1% 0 1% 1%;
+}
+
+

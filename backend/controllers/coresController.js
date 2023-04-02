@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 //get all cores
 const getCores = async (req, res) => {
-    const cores = await coreModel.find({}).sort({size: -1});
+    const cores = await coreModel.find({}).sort({size: 1});
 
     res.status(200).json(cores);
 }
