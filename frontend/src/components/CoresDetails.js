@@ -1,8 +1,8 @@
-const CoresDetails = ({ core }) => {
+const CoresDetails = ({ core }) => {     
     return (
         <div className="cores-details">
             <h4>Core Size: {core.size}</h4>
-            <p><strong>Count: </strong>{core.count}</p>
+            <h4>Count: {core.count}</h4>
         </div>
     )
 }

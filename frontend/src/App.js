@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
+        <h3 className='core-title'>Core Details</h3>
         <div className="pages">
           <Routes>
             <Route 

@@ -9,7 +9,7 @@
 body {
   margin: 0;
   font-family: 'Lora', serif;
-  background-color: gray;
+  background-color: rgb(152, 151, 151);
   display:flex;
   flex-direction: column;
 }
@@ -21,6 +21,7 @@ header .container {
   padding: 1%;
   border-bottom: solid black 1px;
   box-shadow: 10px 1px 10px black;
+  margin-bottom: 1%;
 }
 
 header a {
@@ -30,7 +31,7 @@ header a {
 
 .pages {
   max-width: 90%;
-  padding: 1%;
+  padding: 0 1% 1% 1%;
   margin:0 auto;
 }
 
@@ -39,6 +40,11 @@ header a {
   border: 1px black solid;
   margin: 1.5% 0 1.5% 0;
   padding: 1% 0 1% 1%;
+}
+
+.core-title {
+  width: 25%;
+  margin: 0 auto;
 }
 
 
