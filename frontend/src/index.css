@@ -47,4 +47,19 @@ header a {
   margin: 0 auto;
 }
 
+#admin-form {
+  background-color: white;
+  border: 1px black solid;
+  margin: 1.5% 0 1.5% 0;
+  padding: 1% 0 1% 1%;
+  align-items: center;
+}
+
+#admin-form h3 {
+  width: 25%;
+  margin: 0 auto;
+}
+
+
+
 

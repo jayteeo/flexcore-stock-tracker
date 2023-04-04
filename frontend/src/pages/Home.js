@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 
+
 //components
 import CoresDetails from '../components/CoresDetails.js'
+import AdminForm from "../components/AdminForm.js";
 
 
 const Home = () => {
@@ -22,11 +24,13 @@ const Home = () => {
 
     return (
         <div className="home">
+            <h3 className='core-title'>Core Details</h3>
             <div className="cores">
                 {cores && cores.map((core) => (
                     <CoresDetails key={core._id} core={core} />
                 ))}
             </div>
+            <AdminForm />
         </div>
     )
 }
