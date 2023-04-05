@@ -40,7 +40,7 @@ const AdminForm = () => {
                 value={size}
             />
 
-            <label>Core Count: </label>
+            <label><bold>Core Count: </bold></label>
             <input 
                 type="number"
                 onChange={(e) => setCount(e.target.value)} 
