@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer } from "react"
 
 export const CoresContext = createContext();
 
@@ -25,7 +25,7 @@ export const CoresContextProvider = ({ children }) => {
     
 
     return (
-        <CoresContext.Provider value={{state, dispatch}}>
+        <CoresContext.Provider value={{...state, dispatch}}>
             { children }
         </CoresContext.Provider>
     )

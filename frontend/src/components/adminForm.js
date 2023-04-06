@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState } from "react"
+import { useCoresContext } from "../hooks/useCoresContext.js"
 
 const AdminForm = () => {
+    const { dispatch } = useCoresContext();
     const [size, setSize] = useState('');
     const [count, setCount] = useState('');
     const [error, setError] = useState(null);
@@ -27,6 +29,7 @@ const AdminForm = () => {
             setCount('');
             setError(null);
             console.log('Added new core!', json)
+            dispatch({type: 'CREATE_CORE', payload: json})
         }
     }
 
@@ -53,4 +56,4 @@ const AdminForm = () => {
     )
 }
 
-export default AdminForm;
+export default AdminForm

@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useCoresContext } from "../hooks/useCoresContext.js"
 
 
 //components
@@ -7,7 +8,7 @@ import AdminForm from "../components/AdminForm.js";
 
 
 const Home = () => {
-    const [cores, setCores] = useState(null)
+    const {cores, dispatch} = useCoresContext();
     
     useEffect(() => {
         const fetchCores = async () => {
@@ -15,7 +16,7 @@ const Home = () => {
             const json = await response.json();
 
             if (response.ok) {
-                setCores(json);
+                dispatch({type: 'SET_CORES', payload: json})
             }
         }
 
