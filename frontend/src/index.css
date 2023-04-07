@@ -42,11 +42,17 @@ header a {
   padding: 1% 0 1% 1%;
 }
 
+.cores-details span {
+  border: 1px black;
+}
+
 .core-title {
   width: 5%;
   margin: 0 auto;
-  word-wrap: none;
+  
 }
+
+/* admin form */
 
 #admin-form {
   display:flex;
@@ -88,6 +94,7 @@ header a {
   box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px black;
   outline: 0;
 }
+
 
 
 

@@ -12,6 +12,10 @@ export const coresReducer = (state, action) => {
             return {
                 cores: [action.payload, ...state.cores]
             }
+        case 'DELETE_CORE':
+            return {
+                cores: state.cores.filter((w) => w._id !== action.payload._id)
+            }
         default: 
             return state
     }
