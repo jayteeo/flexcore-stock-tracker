@@ -43,7 +43,8 @@ header a {
 }
 
 .cores-details span {
-  border: 1px black;
+  color: white;
+  background-color: rgb(152, 151, 151);
 }
 
 .core-title {
