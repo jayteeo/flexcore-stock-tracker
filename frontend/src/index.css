@@ -42,9 +42,14 @@ header a {
   padding: 1% 0 1% 1%;
 }
 
+.cores-details > * {
+  padding: .25%;
+}
+
 .cores-details span {
   color: white;
   background-color: rgb(152, 151, 151);
+  margin-bottom: 5%;
 }
 
 .core-title {

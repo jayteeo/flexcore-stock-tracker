@@ -20,7 +20,7 @@ const CoresDetails = ({ core }) => {
         <div className="cores-details">
             <h4>Core Size: {core.size}</h4>
             <h4>Count: {core.count}</h4>
-            <span onClick={handleClick}>Delete</span>
+            <button onClick={handleClick}>Delete</button>
         </div>
     )
 }
