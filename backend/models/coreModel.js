@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const coresSchema = new Schema ({
     size: {
-        type: Number,
+        type: Schema.Types.Mixed,
         required: true,
     },
     count: {

@@ -38,7 +38,7 @@ const AdminForm = () => {
             <h3>Add New Core</h3>
             <label>Core Size: </label>
             <input 
-                type="number"
+                type="text"
                 onChange={(e) => setSize(e.target.value)} 
                 value={size}
             />
