@@ -31,6 +31,20 @@ const getCore = async (req, res) => {
 const createCore = async (req, res) => {
     const {size, count} = req.body;
 
+    let emptyFields = [];
+
+    if (!size) {
+        emptyFields.push('size')
+    }
+    if (!count) {
+        emptyFields.push('count')
+    }
+    if(emptyFields.length > 0) {
+        return res.status(400).json({ error: 'Please fill in all empty fields!', emptyFields })
+    }
+
+
+
     //add document to db
     try {
       const core = await coreModel.create({size, count});  

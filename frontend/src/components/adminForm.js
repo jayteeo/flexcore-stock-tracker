@@ -6,6 +6,7 @@ const AdminForm = () => {
     const [size, setSize] = useState('');
     const [count, setCount] = useState('');
     const [error, setError] = useState(null);
+    const [emptyFields, setEmptyFields] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,11 +24,13 @@ const AdminForm = () => {
         
         if (!response.ok) {
             setError(json.error);
+            setEmptyFields(json.emptyFields);
         }
         if (response.ok) {
             setSize('');
             setCount('');
             setError(null);
+            setEmptyFields([]);
             console.log('Added new core!', json)
             dispatch({type: 'CREATE_CORE', payload: json})
         }
@@ -41,6 +44,7 @@ const AdminForm = () => {
                 type="text"
                 onChange={(e) => setSize(e.target.value)} 
                 value={size}
+                className={emptyFields.includes('size') ? 'error' : ''}
             />
 
             <label><bold>Core Count: </bold></label>
@@ -48,6 +52,7 @@ const AdminForm = () => {
                 type="number"
                 onChange={(e) => setCount(e.target.value)} 
                 value={count}
+                className={emptyFields.includes('count') ? 'error' : ''}
             />
 
             <button>Add Core</button>
