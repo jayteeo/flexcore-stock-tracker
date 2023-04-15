@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useCoresContext } from "../hooks/useCoresContext.js"
 
+
 const AdminForm = () => {
     const { dispatch } = useCoresContext();
     const [size, setSize] = useState('');
@@ -27,6 +28,9 @@ const AdminForm = () => {
             setEmptyFields(json.emptyFields);
         }
         if (response.ok) {
+            // if (response.exists(size)) {
+            //     alert('size already exists!')
+            // }
             setSize('');
             setCount('');
             setError(null);
