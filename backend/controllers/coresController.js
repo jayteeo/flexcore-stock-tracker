@@ -33,6 +33,12 @@ const createCore = async (req, res) => {
 
     let emptyFields = [];
 
+    try {
+
+    } catch {
+        
+    }
+
     if (!size) {
         emptyFields.push('size')
     }
@@ -42,6 +48,10 @@ const createCore = async (req, res) => {
     if(emptyFields.length > 0) {
         return res.status(400).json({ error: 'Please fill in all empty fields!', emptyFields })
     }
+    if(emptyFields.length > 0) {
+        return res.status(400).json({ error: 'Please fill in all empty fields!', emptyFields })
+    }
+    
 
 
 
