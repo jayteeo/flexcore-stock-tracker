@@ -33,12 +33,6 @@ const createCore = async (req, res) => {
 
     let emptyFields = [];
 
-    try {
-
-    } catch {
-        
-    }
-
     if (!size) {
         emptyFields.push('size')
     }
@@ -93,6 +87,7 @@ const updateCore = async (req, res) => {
     const core = await coreModel.findOneAndUpdate({_id: id}, {
        ...req.body
     })
+    
 
     if (!core) {
         return res.status(400).json({error: 'No such core exists!'});
