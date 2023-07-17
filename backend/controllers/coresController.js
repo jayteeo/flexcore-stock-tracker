@@ -42,6 +42,10 @@ const createCore = async (req, res) => {
     if(emptyFields.length > 0) {
         return res.status(400).json({ error: 'Please fill in all empty fields!', emptyFields })
     }
+    if(emptyFields.length > 0) {
+        return res.status(400).json({ error: 'Please fill in all empty fields!', emptyFields })
+    }
+    
 
 
 
@@ -83,6 +87,7 @@ const updateCore = async (req, res) => {
     const core = await coreModel.findOneAndUpdate({_id: id}, {
        ...req.body
     })
+    
 
     if (!core) {
         return res.status(400).json({error: 'No such core exists!'});
