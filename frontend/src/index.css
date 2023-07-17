@@ -62,7 +62,7 @@ header a {
 }
 
 .core-title {
-  width: 5%;
+  width: 10%;
   margin: 0 auto;
   
 }
@@ -85,7 +85,6 @@ header a {
 }
 
 #admin-form > * {
-  /* padding: 1%; */
   margin-top: 1%;;
 }
 
