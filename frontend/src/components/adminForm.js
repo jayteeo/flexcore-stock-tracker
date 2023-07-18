@@ -46,7 +46,7 @@ const AdminForm = () => {
                 type="text"
                 onChange={(e) => setSize(e.target.value)} 
                 value={size}
-                className={emptyFields.includes('size') ? 'error' : ''}
+                className={emptyFields?.includes('size') ? 'error' : ''}
             />
 
             <label><bold>Core Count: </bold></label>
@@ -54,7 +54,7 @@ const AdminForm = () => {
                 type="number"
                 onChange={(e) => setCount(e.target.value)} 
                 value={count}
-                className={emptyFields.includes('count') ? 'error' : ''}
+                className={emptyFields?.includes('count') ? 'error' : ''}
             />
 
             <button>Add Core</button>
