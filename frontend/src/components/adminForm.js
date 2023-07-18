@@ -28,22 +28,13 @@ const AdminForm = () => {
             setEmptyFields(json.emptyFields);
         }
         if (response.ok) {
-            if (response.exists(size)) {
-                alert('size already exists!')
-            } else {
-                setSize('');
-                setCount('');
-                setError(null);
-                setEmptyFields([]);
-                console.log('Added new core!', json)
-                dispatch({type: 'CREATE_CORE', payload: json})
-            }
-            // setSize('');
-            // setCount('');
-            // setError(null);
-            // setEmptyFields([]);
-            // console.log('Added new core!', json)
-            // dispatch({type: 'CREATE_CORE', payload: json})
+            
+            setSize('');
+            setCount('');
+            setError(null);
+            setEmptyFields([]);
+            console.log('Added new core!', json)
+            dispatch({type: 'CREATE_CORE', payload: json})
         }
     }
 

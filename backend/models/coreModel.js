@@ -6,6 +6,7 @@ const coresSchema = new Schema ({
     size: {
         type: Schema.Types.Mixed,
         required: true,
+        unique: true,
     },
     count: {
         type: Number,

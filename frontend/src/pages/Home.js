@@ -4,8 +4,8 @@ import { useCoresContext } from "../hooks/useCoresContext.js"
 
 //components
 import CoresDetails from '../components/CoresDetails.js'
+// import AdminForm from '../components/AdminForm.js'
 import AdminForm from "../components/AdminForm.js";
-
 
 const Home = () => {
     const {cores, dispatch} = useCoresContext();
@@ -21,7 +21,7 @@ const Home = () => {
         }
 
         fetchCores();
-    }, [])
+    }, [dispatch])
 
     return (
         <div className="home">
