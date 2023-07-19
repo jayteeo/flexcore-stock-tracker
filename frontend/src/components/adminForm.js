@@ -39,27 +39,41 @@ const AdminForm = () => {
     }
 
     return (
-        <form action="" className="create" id="admin-form" onSubmit={handleSubmit}>
-            <h3>Add New Core</h3>
-            <label>Core Size: </label>
-            <input 
-                type="text"
-                onChange={(e) => setSize(e.target.value)} 
-                value={size}
-                className={emptyFields?.includes('size') ? 'error' : ''}
-            />
+        <div>
+            {/* add new core */}
+            <form action="" className="create" id="admin-form" onSubmit={handleSubmit}>
+                <h3>Add New Core</h3>
+                <label>Core Size: </label>
+                <input 
+                    type="text"
+                    onChange={(e) => setSize(e.target.value)} 
+                    value={size}
+                    className={emptyFields?.includes('size') ? 'error' : ''}
+                />
 
-            <label><bold>Core Count: </bold></label>
-            <input 
-                type="number"
-                onChange={(e) => setCount(e.target.value)} 
-                value={count}
-                className={emptyFields?.includes('count') ? 'error' : ''}
-            />
+                <label><bold>Core Count: </bold></label>
+                <input 
+                    type="number"
+                    onChange={(e) => setCount(e.target.value)} 
+                    value={count}
+                    className={emptyFields?.includes('count') ? 'error' : ''}
+                />
 
-            <button>Add Core</button>
-            {error && <div className="error">{error}</div>}
-        </form>
+                <button>Add Core</button>
+                {error && <div className="error">{error}</div>}
+            </form>
+
+            {/* change core count */}
+            <form action="" className="create" id="admin-form" onSubmit={handleSubmit}>
+                <h3>Change Core Count</h3>
+                <select className="">
+                    
+                </select>
+
+
+
+            </form>
+        </div>
     )
 }
 

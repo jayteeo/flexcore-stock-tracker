@@ -14,4 +14,12 @@ const coresSchema = new Schema ({
     },
 }, { timestamps: true })
 
+coresSchema.post('save', function(error, doc, next) {
+    if (error.name === 'MongoServerError' && error.code === 11000) {
+      next(new Error('Error - Core size already exists!'));
+    } else {
+      next();
+    }
+  });
+
 export default mongoose.model('coreModel', coresSchema);

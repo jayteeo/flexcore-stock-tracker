@@ -47,8 +47,6 @@ const createCore = async (req, res) => {
     }
     
 
-
-
     //add document to db
     try {
       const core = await coreModel.create({size, count});  
