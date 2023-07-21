@@ -63,17 +63,6 @@ const AdminForm = () => {
                 {error && <div className="error">{error}</div>}
             </form>
 
-            {/* <form action="" className="create" id="admin-form" onSubmit={handleSubmit}>
-                <h3>Change Core Count</h3>
-                <select className="">
-                    <option>
-                        {response.core}
-                    </option>
-                </select>
-
-
-
-            </form> */}
         </div>
     )
 }
