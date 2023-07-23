@@ -4,6 +4,8 @@ const UserForm = () => {
     const [cores, setCores] = useState([]);
     const [selectedCore, setSelectedCore] = useState("");
 
+    const [error, setError] = useState(null);
+
     //fetch data  
     useEffect(() => {
         const fetchData = async () => {
@@ -43,6 +45,9 @@ const UserForm = () => {
                 <label>Amount: </label>
                 <input type="text">
                 </input>
+
+                <button>Add Core</button>
+                {error && <div className="error">{error}</div>}
             </form>
         
             </div>

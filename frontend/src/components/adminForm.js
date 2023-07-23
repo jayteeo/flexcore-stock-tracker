@@ -42,7 +42,7 @@ const AdminForm = () => {
         <div>
             {/* add new core */}
             <form action="" className="create" id="admin-form" onSubmit={handleSubmit}>
-                <h3>Add New Core</h3>
+                <h3>Create New Core</h3>
                 <label>Core Size: </label>
                 <input 
                     type="text"
