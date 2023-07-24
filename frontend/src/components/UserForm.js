@@ -23,10 +23,14 @@ const UserForm = () => {
         const handleCoreChange = (e) => {
             setSelectedCore(e.target.value);    
         }
+
+        const handleSubmit = async (e) => {
+
+        }
     
         return (
             <div>
-                <form action="" className="create" id="admin-form">
+                <form action="" className="create" id="admin-form" onSubmit={handleSubmit}>
                 <h3>Add/Remove Cores</h3>
                 <label>Core Size: </label>
                 <select value={selectedCore} onChange={handleCoreChange}>
@@ -46,7 +50,7 @@ const UserForm = () => {
                 <input type="text">
                 </input>
 
-                <button>Add Core</button>
+                <button>Change Core Amount</button>
                 {error && <div className="error">{error}</div>}
             </form>
         
