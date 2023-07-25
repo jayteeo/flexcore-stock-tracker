@@ -4,7 +4,9 @@ const UserForm = () => {
     const [cores, setCores] = useState([]);
     const [selectedCore, setSelectedCore] = useState("");
 
+    const [count, SetCount] = useState('');
     const [error, setError] = useState(null);
+    const [emptyFields, setEmptyFields] = useState([]);
 
     //fetch data  
     useEffect(() => {
@@ -25,6 +27,10 @@ const UserForm = () => {
         }
 
         const handleSubmit = async (e) => {
+            e.preventDefault();
+
+            const filter = {size: selectedCore};
+            const update = {count: count};
 
         }
     
@@ -47,8 +53,18 @@ const UserForm = () => {
                     <option>Subtract</option>
                 </select>
                 <label>Amount: </label>
-                <input type="text">
-                </input>
+                
+                <input 
+                    type="text" 
+                        onChange = {(e) => SetCount(e.target.value)}
+                        value = {count}
+                        className={emptyFields?.includes('count') ? 'error' : ''}
+
+                        
+                
+                />
+                
+
 
                 <button>Change Core Amount</button>
                 {error && <div className="error">{error}</div>}
