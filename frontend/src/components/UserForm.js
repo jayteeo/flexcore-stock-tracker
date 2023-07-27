@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import coreModel from "../models/coreModel.js";
 
 const UserForm = () => {
     const [cores, setCores] = useState([]);
@@ -8,7 +7,6 @@ const UserForm = () => {
     const [count, SetCount] = useState('');
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
-    const [ dispatch] = useCoresContext();
 
     //fetch data  
     useEffect(() => {
@@ -35,8 +33,8 @@ const UserForm = () => {
             const update = {count: count};
 
             const response = await coreModel.findOneAndUpdate(filter, update);
-            response.size;
-            response.update;
+            // response.size;
+            // response.update;
 
         }
     
