@@ -29,13 +29,12 @@ const UserForm = () => {
         const handleSubmit = async (e) => {
             e.preventDefault();
 
-            const filter = {size: selectedCore};
-            const update = {count: count};
+            // const filter = {size: selectedCore};
+            // const update = {count: count};
 
-            const response = await coreModel.findOneAndUpdate(filter, update);
+            // const response = await coreModel.findOneAndUpdate(filter, update);
             // response.size;
             // response.update;
-
         }
     
         return (
