@@ -4,7 +4,7 @@ const UserForm = () => {
     const [cores, setCores] = useState([]);
     const [selectedCore, setSelectedCore] = useState("");
 
-    const [count, SetCount] = useState('');
+    // const [count, SetCount] = useState('');
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
 
@@ -29,12 +29,7 @@ const UserForm = () => {
         const handleSubmit = async (e) => {
             e.preventDefault();
 
-            // const filter = {size: selectedCore};
-            // const update = {count: count};
-
-            // const response = await coreModel.findOneAndUpdate(filter, update);
-            // response.size;
-            // response.update;
+            
         }
     
         return (
