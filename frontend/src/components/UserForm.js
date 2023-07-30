@@ -54,9 +54,9 @@ const UserForm = () => {
                 
                 <input 
                     type="text" 
-                        onChange = {(e) => SetCount(e.target.value)}
-                        value = {count}
-                        className={emptyFields?.includes('count') ? 'error' : ''}
+                        // onChange = {(e) => SetCount(e.target.value)}
+                        // value = {count}
+                        // className={emptyFields?.includes('count') ? 'error' : ''}
 
                 />
                 
