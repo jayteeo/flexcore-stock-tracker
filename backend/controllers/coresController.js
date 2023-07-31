@@ -27,7 +27,6 @@ const getCore = async (req, res) => {
 }
 
 //create new core
-
 const createCore = async (req, res) => {
     const {size, count} = req.body;
 
