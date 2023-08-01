@@ -63,7 +63,7 @@ const UserForm = () => {
 
 
                 <button>Change Core Amount</button>
-                {error && <div className="error">{error}</div>}
+                {/* {error && <div className="error">{error}</div>} */}
             </form>
         
             </div>
