@@ -94,7 +94,7 @@ const updateCore = async (req, res) => {
 }
 
 const updateCoreStock = async (req,res) => {
-
+    const {size, count} = req.params;
 }
 
 export {
