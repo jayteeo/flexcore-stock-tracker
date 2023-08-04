@@ -5,6 +5,7 @@ import {
         createCore, 
         deleteCore,
         updateCore,
+        updateCoreStock,
     } from '../controllers/coresController.js';
 
 const router = express.Router();
@@ -23,5 +24,8 @@ router.delete('/:id', deleteCore);
 
 //UPDATE cores
 router.patch('/:id', updateCore);
+
+//CHANGE count
+router.post('updateCoreStock', updateCoreStock);
 
 export {router as default};
