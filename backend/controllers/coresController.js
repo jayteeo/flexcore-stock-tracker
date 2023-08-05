@@ -93,8 +93,12 @@ const updateCore = async (req, res) => {
     res.status(200).json(core);
 }
 
+//
 const updateCoreStock = async (req,res) => {
-    const {size, count} = req.params;
+    // const {size, count} = req.params;
+
+    let currentCore = cores.findOneAndUpdate({size: req.size});
+
 }
 
 export {
