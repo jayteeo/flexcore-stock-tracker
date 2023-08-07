@@ -97,7 +97,9 @@ const updateCore = async (req, res) => {
 const updateCoreStock = async (req,res) => {
     // const {size, count} = req.params;
 
-    let currentCore = cores.findOneAndUpdate({size: req.size});
+
+
+    let currentCore = await coreModel.findOneAndUpdate({size: req.size}, {$subtract: [req.count,]});
 
     if(!size) {
         return res.status(400).json({error: 'Core size does not exist!'});
