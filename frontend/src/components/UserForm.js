@@ -9,18 +9,18 @@ const UserForm = () => {
     const [emptyFields, setEmptyFields] = useState([]);
 
     //fetch data  
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch('/api/cores/', {
-                method: 'GET',
-                headers: {'Content-Type': 'application/json'}
-                })
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const response = await fetch('/api/cores/', {
+    //             method: 'GET',
+    //             headers: {'Content-Type': 'application/json'}
+    //             })
             
-            .then(response => response.json());
-            setCores(response);
+    //         .then(response => response.json());
+    //         setCores(response);
 
-        }
-        fetchData()}, []);
+    //     }
+    //     fetchData()}, []);
 
         const handleCoreChange = (e) => {
             setSelectedCore(e.target.value);    
