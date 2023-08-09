@@ -95,7 +95,7 @@ const updateCore = async (req, res) => {
 
 //ADDING or SUBTRACTING core count
 const updateCoreStock = async (req,res) => {
-    // const {size, count} = req.params;
+    const {size, count} = req.params;
 
 
     // let coreStockData = 
