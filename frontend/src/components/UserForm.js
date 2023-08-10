@@ -5,6 +5,9 @@ const UserForm = () => {
     const [selectedCore, setSelectedCore] = useState("");
 
     // const [count, SetCount] = useState('');
+    const [size, setSize] = useState('');
+    const [action, setAction] = useState('');
+    const [amount, setAmount] = useState('');
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
 
@@ -26,10 +29,20 @@ const UserForm = () => {
             setSelectedCore(e.target.value);    
         }
 
+        //handle submit
         const handleSubmit = async (e) => {
             e.preventDefault();
 
-            
+            const coreChange = {size, action, amount};
+
+            const response = await fetch('/api/updateCoreStock', {
+                method: 'POST',
+                body: JSON.stringify(coreChange),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }) 
+                
         }
     
         return (

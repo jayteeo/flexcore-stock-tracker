@@ -26,6 +26,6 @@ router.delete('/:id', deleteCore);
 router.patch('/:id', updateCore);
 
 //CHANGE count
-router.post('updateCoreStock', updateCoreStock);
+router.post('/updateCoreStock', updateCoreStock);
 
 export {router as default};
