@@ -7,7 +7,7 @@ const UserForm = () => {
     // const [count, SetCount] = useState('');
     const [size, setSize] = useState('');
     const [action, setAction] = useState('');
-    const [amount, setAmount] = useState('');
+    const [count, setCount] = useState('');
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
 
@@ -33,7 +33,7 @@ const UserForm = () => {
         const handleSubmit = async (e) => {
             e.preventDefault();
 
-            const coreChange = {size, action, amount};
+            const coreChange = {size, action, count};
 
             const response = await fetch('/api/updateCoreStock', {
                 method: 'POST',
@@ -42,6 +42,15 @@ const UserForm = () => {
                     'Content-Type': 'application/json'
                 }
             }) 
+
+            const json = await response.json();
+
+            if (!response.ok) {
+                setError(json.error);
+                setEmptyFields(json.emptyFields);
+            }
+
+            console.log(size, action, count);
                 
         }
     
@@ -49,8 +58,9 @@ const UserForm = () => {
             <div>
                 <form action="" className="create" id="admin-form" onSubmit={handleSubmit}>
                 <h3>Add/Remove Cores</h3>
+                
                 <label>Core Size: </label>
-                <select value={selectedCore} onChange={handleCoreChange}>
+                <select value={size} onChange={(e) => setSize(e.target.value)}>
                     <option value="">Select Core...</option>
                     {cores?.map((cores, index) => (
                         <option key={index} value={cores.id}>
@@ -58,25 +68,27 @@ const UserForm = () => {
                         </option>
                     ))}
                 </select>
+
                 <label>Action: </label>
-                <select>
+                <select value={action} onChange={(e) => setAction(e.target.value)}>
+                    <option>Select</option>
                     <option>Add</option>
                     <option>Subtract</option>
                 </select>
                 <label>Amount: </label>
                 
                 <input 
-                    type="text" 
-                        // onChange = {(e) => SetCount(e.target.value)}
-                        // value = {count}
-                        // className={emptyFields?.includes('count') ? 'error' : ''}
+                    type="number" 
+                    value={count}
+                    onChange={(e) => setCount(e.target.value)}
+                    className={emptyFields?.includes('count') ? 'error' : ''}
 
                 />
                 
 
 
                 <button>Change Core Amount</button>
-                {/* {error && <div className="error">{error}</div>} */}
+                {error && <div className="error">{error}</div>}
             </form>
         
             </div>
