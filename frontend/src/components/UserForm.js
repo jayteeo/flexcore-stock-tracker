@@ -35,22 +35,22 @@ const UserForm = () => {
 
             const coreChange = {size, action, count};
 
-            const response = await fetch('/api/updateCoreStock', {
-                method: 'POST',
-                body: JSON.stringify(coreChange),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }) 
+            // const response = await fetch('/api/updateCoreStock', {
+            //     method: 'POST',
+            //     body: JSON.stringify(coreChange),
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     }
+            // }); 
 
-            const json = await response.json();
+            // const json = await response.json();
 
-            if (!response.ok) {
-                setError(json.error);
-                setEmptyFields(json.emptyFields);
-            }
+            // if (!response.ok) {
+            //     setError(json.error);
+            //     setEmptyFields(json.emptyFields);
+            // }
 
-            console.log(size, action, count);
+            // console.log(size, action, count);
                 
         }
     
