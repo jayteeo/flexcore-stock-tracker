@@ -95,16 +95,18 @@ const updateCore = async (req, res) => {
 
 //ADDING or SUBTRACTING core count
 const updateCoreStock = async (req,res) => {
-    const {size, count} = req.params;
+    
+    // const {size, action, count} = req.body;
 
+    // res.console.log(action);
 
     // let coreStockData = 
 
-    let currentCore = await coreModel.findOneAndUpdate({size: req.size}, {$subtract: [req.count,]});
+    // let currentCore = await coreModel.findOneAndUpdate({size: req.size}, {$subtract: [req.count,]});
 
-    if(!size) {
-        return res.status(400).json({error: 'Core size does not exist!'});
-    }
+    // if(!size) {
+    //     return res.status(400).json({error: 'Core size does not exist!'});
+    // }
 
 
 }

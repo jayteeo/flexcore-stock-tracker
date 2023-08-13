@@ -14,7 +14,7 @@ const UserForm = () => {
     //fetch data for dropdown
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('/api/cores/', {
+            const response = await fetch('/api/cores', {
                 method: 'GET',
                 headers: {'Content-Type': 'application/json'}
                 })
@@ -35,13 +35,13 @@ const UserForm = () => {
 
             const coreChange = {size, action, count};
 
-            // const response = await fetch('/api/updateCoreStock', {
-            //     method: 'POST',
-            //     body: JSON.stringify(coreChange),
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     }
-            // }); 
+            const response = await fetch('/api/cores/updateCoreStock', {
+                method: 'POST',
+                body: JSON.stringify(coreChange),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }); 
 
             // const json = await response.json();
 
