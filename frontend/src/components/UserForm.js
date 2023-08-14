@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
+// import { useCoresContext } from "../hooks/useCoresContext";
+
 
 const UserForm = () => {
+    // const { dispatch } = useCoresContext;
     const [cores, setCores] = useState([]);
     const [selectedCore, setSelectedCore] = useState("");
 
@@ -33,21 +36,30 @@ const UserForm = () => {
         const handleSubmit = async (e) => {
             e.preventDefault();
 
-            const coreChange = {size, action, count};
+            const coreCountChange = {size, action, count};
 
-            const response = await fetch('/api/cores/updateCoreStock', {
-                method: 'POST',
-                body: JSON.stringify(coreChange),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }); 
+            // const response = await fetch('/api/cores/updateCoreStock', {
+            //     method: 'POST',
+            //     body: JSON.stringify(coreCountChange),
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     }
+            // }); 
 
             // const json = await response.json();
 
             // if (!response.ok) {
             //     setError(json.error);
             //     setEmptyFields(json.emptyFields);
+            // }
+
+            // if (response.ok) {
+            //     setSize('');
+            //     setAction('');
+            //     setCount('');
+            //     setEmptyFields([]);
+            //     console.log('Updated Core', json);
+            //     dispatch({type: 'CREATE_CORE', payload: json});
             // }
 
             // console.log(size, action, count);

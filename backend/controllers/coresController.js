@@ -1,6 +1,8 @@
 import coreModel from "../models/coreModel.js";
 import mongoose from "mongoose";
 
+import { updateCoreStockService } from "../services/coreService.js";
+
 //get all cores
 const getCores = async (req, res) => {
     const cores = await coreModel.find({}).sort({size: 1});
@@ -94,21 +96,25 @@ const updateCore = async (req, res) => {
 }
 
 //ADDING or SUBTRACTING core count
-const updateCoreStock = async (req,res) => {
+// const updateCoreStock = async (req,res) => {
     
-    // const {size, action, count} = req.body;
+//     const {size, action, count} = req.body;
 
-    // res.console.log(action);
+//     res.console.log(action);
 
-    // let coreStockData = 
+//     let coreStockData = 
 
-    // let currentCore = await coreModel.findOneAndUpdate({size: req.size}, {$subtract: [req.count,]});
+//     let currentCore = await coreModel.findOneAndUpdate({size: req.size}, {$subtract: [req.count,]});
 
-    // if(!size) {
-    //     return res.status(400).json({error: 'Core size does not exist!'});
-    // }
+//     if(!size) {
+//         return res.status(400).json({error: 'Core size does not exist!'});
+//     }
 
 
+// }
+
+const updateCoreStock = async (req,res) => {
+    updateCoreStockService();
 }
 
 export {
