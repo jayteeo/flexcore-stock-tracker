@@ -1,7 +1,7 @@
 import coreModel from "../models/coreModel.js";
 import mongoose from "mongoose";
 
-import { updateCoreStockService } from "../services/coreService.js";
+// import { updateCoreStockService } from "../services/coreService.js";
 
 //get all cores
 const getCores = async (req, res) => {
@@ -114,7 +114,36 @@ const updateCore = async (req, res) => {
 // }
 
 const updateCoreStock = async (req,res) => {
-    updateCoreStockService();
+    // updateCoreStockService();
+
+    let {size, action, count} = req.body;
+    console.log(action);
+
+
+    if (action == 'Subtract') {
+        count = -Math.abs(count);
+    }
+
+    const core = await coreModel.findOneAndUpdate({size: size},
+        { '$inc': {'count': count}}
+    )    
+
+    // try {
+    //     const core = await coreModel.findOneAndUpdate({size: size},
+    //         { '$inc': {'count': count}
+            
+            
+    //     }, res.status(200).json(core),console.log('hello'));
+    // } catch (error) {
+    //     res.status(400).json({error: error.message})
+    // }
+    
+    // coreModel.updateOne({size: size},
+    //     { '$inc': {'count': count}
+    // });
+
+
+
 }
 
 export {
