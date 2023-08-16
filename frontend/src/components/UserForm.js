@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
-// import { useCoresContext } from "../hooks/useCoresContext";
+import { useCoresContext } from "../hooks/useCoresContext.js";
 
 
 const UserForm = () => {
-    // const { dispatch } = useCoresContext;
+    const { dispatch } = useCoresContext;
     const [cores, setCores] = useState([]);
     const [selectedCore, setSelectedCore] = useState("");
 
-    // const [count, SetCount] = useState('');
     const [size, setSize] = useState('');
     const [action, setAction] = useState('');
     const [count, setCount] = useState('');
@@ -42,27 +41,28 @@ const UserForm = () => {
                 method: 'POST',
                 body: JSON.stringify(coreCountChange),
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 }
             }); 
 
-            // const json = await response.json();
+            const json = await response.json();
 
-            // if (!response.ok) {
-            //     setError(json.error);
-            //     setEmptyFields(json.emptyFields);
-            // }
+            if (!response.ok) {
+                setError(json.error);
+                setEmptyFields(json.emptyFields);
+            }
 
-            // if (response.ok) {
-            //     setSize('');
-            //     setAction('');
-            //     setCount('');
-            //     setEmptyFields([]);
-            //     console.log('Updated Core', json);
-            //     dispatch({type: 'CREATE_CORE', payload: json});
-            // }
+            if (response.ok) {
+                setSize('');
+                setAction('');
+                setCount('');
+                setEmptyFields([]);
+                console.log('Updated Core', json);
+                dispatch({type: 'CREATE_CORE', payload: json});
+            }
 
-            // console.log(size, action, count);
+            
                 
         }
     

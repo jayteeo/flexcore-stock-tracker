@@ -1,8 +1,6 @@
 import coreModel from "../models/coreModel.js";
 import mongoose from "mongoose";
 
-// import { updateCoreStockService } from "../services/coreService.js";
-
 //get all cores
 const getCores = async (req, res) => {
     const cores = await coreModel.find({}).sort({size: 1});
@@ -96,28 +94,25 @@ const updateCore = async (req, res) => {
 }
 
 //ADDING or SUBTRACTING core count
-// const updateCoreStock = async (req,res) => {
-    
-//     const {size, action, count} = req.body;
-
-//     res.console.log(action);
-
-//     let coreStockData = 
-
-//     let currentCore = await coreModel.findOneAndUpdate({size: req.size}, {$subtract: [req.count,]});
-
-//     if(!size) {
-//         return res.status(400).json({error: 'Core size does not exist!'});
-//     }
-
-
-// }
 
 const updateCoreStock = async (req,res) => {
-    // updateCoreStockService();
-
+    
     let {size, action, count} = req.body;
-    console.log(action);
+    let emptyFields = [];
+
+    console.log(size);
+
+    if(!size) {
+        return res.status(400).json({ error: 'Please select appropriate Size!', emptyFields })
+        
+    }
+    if (!count) {
+        emptyFields.push('count')
+    }
+    if(emptyFields.length > 0) {
+        return res.status(400).json({ error: 'Please fill in all empty fields!', emptyFields })
+    }
+
 
 
     if (action == 'Subtract') {
@@ -127,6 +122,9 @@ const updateCoreStock = async (req,res) => {
     const core = await coreModel.findOneAndUpdate({size: size},
         { '$inc': {'count': count}}
     )    
+
+ 
+ 
 
     // try {
     //     const core = await coreModel.findOneAndUpdate({size: size},
