@@ -103,7 +103,7 @@ const updateCoreStock = async (req,res) => {
     console.log(size);
 
     if(!size) {
-        return res.status(400).json({ error: 'Please select appropriate Size!', emptyFields })
+        return res.status(400).json({ error: 'Please select appropriate Size!'})
         
     }
     if (!count) {
@@ -119,26 +119,26 @@ const updateCoreStock = async (req,res) => {
         count = -Math.abs(count);
     }
 
-    const core = await coreModel.findOneAndUpdate({size: size},
-        { '$inc': {'count': count}}
-    )    
+
+    // const core = await coreModel.findOneAndUpdate({size: size},
+    //     { '$inc': {'count': count}},
+    //     res.status(200).json(size)
+    // )    
 
  
  
 
-    // try {
-    //     const core = await coreModel.findOneAndUpdate({size: size},
-    //         { '$inc': {'count': count}
-            
-            
-    //     }, res.status(200).json(core),console.log('hello'));
-    // } catch (error) {
-    //     res.status(400).json({error: error.message})
-    // }
+    try {
+        const core = await coreModel.findOneAndUpdate({size: size},
+            {'$inc': {'count': count}},
+            res.status(200).json(core))
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
     
-    // coreModel.updateOne({size: size},
-    //     { '$inc': {'count': count}
-    // });
+    coreModel.updateOne({size: size},
+        { '$inc': {'count': count}
+    });
 
 
 
