@@ -131,14 +131,14 @@ const updateCoreStock = async (req,res) => {
     try {
         const core = await coreModel.findOneAndUpdate({size: size},
             {'$inc': {'count': count}},
-            res.status(200).json(core))
+            res.status(200).json(size))
     } catch (error) {
         res.status(400).json({error: error.message})
     }
     
-    coreModel.updateOne({size: size},
-        { '$inc': {'count': count}
-    });
+    // coreModel.updateOne({size: size},
+    //     { '$inc': {'count': count}
+    // });
 
 
 

@@ -3,9 +3,8 @@ import { useCoresContext } from "../hooks/useCoresContext.js";
 
 
 const UserForm = () => {
-    const { dispatch } = useCoresContext;
+    const { dispatch } = useCoresContext();
     const [cores, setCores] = useState([]);
-    const [selectedCore, setSelectedCore] = useState("");
 
     const [size, setSize] = useState('');
     const [action, setAction] = useState('');
@@ -27,9 +26,6 @@ const UserForm = () => {
         }
         fetchData()}, []);
 
-        const handleCoreChange = (e) => {
-            setSelectedCore(e.target.value);    
-        }
 
         //handle submit
         const handleSubmit = async (e) => {
