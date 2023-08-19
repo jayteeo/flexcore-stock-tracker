@@ -55,7 +55,7 @@ const UserForm = () => {
                 setCount('');
                 setEmptyFields([]);
                 console.log('Updated Core', json);
-                dispatch({type: 'CREATE_CORE', payload: json});
+                dispatch({type: 'UPDATE_CORE', payload: json});
             }
 
             
@@ -64,7 +64,7 @@ const UserForm = () => {
     
         return (
             <div>
-                <form action="" className="create" id="admin-form" onSubmit={handleSubmit}>
+                <form action="" className="" id="admin-form" onSubmit={handleSubmit}>
                 <h3>Add/Remove Cores</h3>
                 
                 <label>Core Size: </label>
