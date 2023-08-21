@@ -55,7 +55,7 @@ const UserForm = () => {
                 setCount('');
                 setEmptyFields([]);
                 console.log('Updated Core', json);
-                dispatch({type: 'UPDATE_CORE', payload: json});
+                dispatch({type: 'CREATE_CORE', payload: json});
             }
 
             

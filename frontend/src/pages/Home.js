@@ -15,13 +15,9 @@ const Home = () => {
             const response = await fetch('/api/cores');
             const json = await response.json();
 
-            if(!response.ok) {
-                console.log('Something went wrong')
-            }
             if (response.ok) {
                 dispatch({type: 'SET_CORES', payload: json})
             }
-            
         }
 
         fetchCores();
