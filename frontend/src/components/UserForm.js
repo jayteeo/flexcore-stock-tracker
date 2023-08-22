@@ -55,7 +55,9 @@ const UserForm = () => {
                 setCount('');
                 setEmptyFields([]);
                 console.log('Updated Core', json);
-                dispatch({type: 'CREATE_CORE', payload: json});
+                dispatch({type: 'UPDATE_CORE', payload: json});
+                dispatch({type: 'GET_CORES'});
+                
             }
 
             
@@ -90,7 +92,6 @@ const UserForm = () => {
                     value={count}
                     onChange={(e) => setCount(e.target.value)}
                     className={emptyFields?.includes('count') ? 'error' : ''}
-
                 />
                 
 

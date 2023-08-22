@@ -102,10 +102,6 @@ const updateCoreStock = async (req,res) => {
 
     console.log(size);
 
-    // if(!size) {
-    //     return res.status(400).json({ error: 'Please select appropriate Size!'})
-        
-    // }
     if (!count) {
         emptyFields.push('count')
     }
