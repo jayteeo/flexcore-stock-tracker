@@ -10,7 +10,7 @@ export const coresReducer = (state, action) => {
             }
         case 'CREATE_CORE':
             return {
-                cores: [action.payload, ...state.cores]
+                cores: [...state.cores, action.payload]
             }
         case 'DELETE_CORE':
             return {
@@ -18,9 +18,11 @@ export const coresReducer = (state, action) => {
             }
             case 'UPDATE_CORE':
             return {
-                cores: [action.CoresContext, ...state.cores]
-                // cores: [state.cores.filter((w) => w._id !== action.payload._id)]
-                // cores: [...state.cores, state.cores.filter((w) => w.value == action.value)]
+                // cores: [...state.cores]
+                // cores: state.cores.filter((w) => w.size == action.payload.size)
+                // cores: [state.cores.filter((w) => w.value == action.value)]
+                cores: [state.cores.map((cores) => 
+                    cores.size === action.payload.size)]
             }
         default: 
             return state

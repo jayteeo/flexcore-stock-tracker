@@ -56,7 +56,6 @@ const UserForm = () => {
                 setEmptyFields([]);
                 console.log('Updated Core', json);
                 dispatch({type: 'UPDATE_CORE', payload: json});
-                dispatch({type: 'GET_CORES'});
                 
             }
 
