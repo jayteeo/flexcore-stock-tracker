@@ -98,6 +98,7 @@ const updateCore = async (req, res) => {
 const updateCoreStock = async (req,res) => {
     
     let {size, action, count} = req.body;
+    // let { id } = req.params;
     let emptyFields = [];
 
     console.log(size);
@@ -116,7 +117,7 @@ const updateCoreStock = async (req,res) => {
     }
 
     try {
-        const core = await coreModel.findOneAndUpdate({size: size},
+        const core = await coreModel.findOneAndUpdate({ size: size},
             {'$inc': {'count': count}},
             res.status(200).json(size))
     } catch (error) {

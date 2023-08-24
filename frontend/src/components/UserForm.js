@@ -34,7 +34,7 @@ const UserForm = () => {
             const coreCountChange = {size, action, count};
 
             const response = await fetch('/api/cores/updateCoreStock', {
-                method: 'POST',
+                method: 'PATCH',
                 body: JSON.stringify(coreCountChange),
                 headers: {
                     'Content-Type': 'application/json',

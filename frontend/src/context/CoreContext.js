@@ -17,12 +17,21 @@ export const coresReducer = (state, action) => {
                 cores: state.cores.filter((w) => w._id !== action.payload._id)
             }
             case 'UPDATE_CORE':
+                let filter = action.payload.size;
             return {
+            
                 // cores: [...state.cores]
-                // cores: state.cores.filter((w) => w.size == action.payload.size)
+                // cores: [...state.cores, state.cores.filter((w) => w.size === action.payload.size)]
                 // cores: [state.cores.filter((w) => w.value == action.value)]
-                cores: [state.cores.map((cores) => 
-                    cores.size === action.payload.size)]
+
+                // cores: state.cores.map((cores) => 
+                //     cores === action.payload.size ? {
+                //         ...action.payload.size
+                //     }: cores
+                // )
+
+                // cores: state.cores.findOneAndUpdate(filter)
+                
             }
         default: 
             return state
