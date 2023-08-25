@@ -1,6 +1,6 @@
 import coreModel from "../models/coreModel.js";
 import mongoose from "mongoose";
-
+import * as coreService from "../services/coreService.js";
 //get all cores
 const getCores = async (req, res) => {
     const cores = await coreModel.find({}).sort({size: 1});
@@ -91,6 +91,28 @@ const updateCore = async (req, res) => {
     }
 
     res.status(200).json(core);
+}
+
+const updateCoreAsync = async (req, res) => {
+    const coreId = req.params;
+
+    /* from your front end you would pass an object called updateCoreStockPayload
+    // {
+        updateCoreStockPayload: {
+                count: 89
+            }
+        }
+    */
+    const coreCount = req.body.updateCoreStockPayload.count;
+
+    const result = await coreService.updateCoreStock(coreId, coreCount);
+
+    if (result.success == true){
+        req.status(200).json({message: "Success"});
+    }
+    else{
+        req.status(500).json({message: result.message});
+    }
 }
 
 //ADDING or SUBTRACTING core count

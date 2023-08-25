@@ -1,7 +1,30 @@
+import mongoose from "mongoose";
+import coreModel from "../models/coreModel.js";
 
+const updateCoreStock = async (coreId, coreCount) => {
+    if (!mongoose.Types.ObjectId.isValid(coreId)) {
+        return Promise.resolve({
+            success: false,
+            message: "Invalid Core Id Specified"
+        });
+    };
+    
+    const coreItem = await coreModel.findById(coreId);
 
-const updateCoreStock = (coreCountChange) => {
-    console.log('This service fuction has been called!')
+    try{
+        await coreItem.setCoreCount(coreCount);
+        return Promise.resolve({
+            success: true,
+            message: "Updated successfully"
+        })
+    }
+    catch (error){
+        console.log(`Error ${error}`);
+        return Promise.resolve({
+            success: false,
+            message: "An error occurred"
+        })
+    };
 };
 
-// export {updateCoreStockService};
+export default updateCoreStock;
