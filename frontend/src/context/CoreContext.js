@@ -17,9 +17,9 @@ export const coresReducer = (state, action) => {
                 cores: state.cores.filter((w) => w._id !== action.payload._id)
             }
             case 'UPDATE_CORE':
-                let filter = action.payload.size;
+                console.log(state.cores)
             return {
-            
+                
                 // cores: [...state.cores]
                 // cores: [...state.cores, state.cores.filter((w) => w.size === action.payload.size)]
                 // cores: [state.cores.filter((w) => w.value == action.value)]
@@ -30,7 +30,8 @@ export const coresReducer = (state, action) => {
                 //     }: cores
                 // )
 
-                // cores: state.cores.findOneAndUpdate(filter)
+                cores: state.cores.map((w) => w.size == action.payload)
+
                 
             }
         default: 
